@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base Styles ===== */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+  font-family: 'Noto Sans JP', 'Noto Sans KR', 'Inter', sans-serif;
+  scrollbar-width: auto;
+  scrollbar-color: #94a3b8 #e2e8f0;
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-200/80;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-400 rounded-full;
+  border: 4px solid rgba(226, 232, 240, 0.95);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500;
+}
+
+/* ===== Tooltip Animation ===== */
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.tooltip-enter {
+  animation: tooltipFadeIn 0.15s ease-out;
+}
+
+/* ===== Transition Utilities ===== */
+
+.transition-panel {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* ===== Selection ===== */
+
+::selection {
+  @apply bg-indigo-100 text-indigo-900;
+}
+
+/* ===== Focus Ring ===== */
+
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-indigo-400;
+}
